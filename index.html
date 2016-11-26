@@ -1,0 +1,141 @@
+<html>
+  <head>
+    <script type="text/javascript" src="script.js"></script>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <meta charset="UTF-8"> 
+  </head>
+  <body>
+    <h4>Booleans</h4>
+    <p>
+      Let's specify two rewriting rules.
+    </p>
+    <ul class="code">
+      <li>NOT FALSE → TRUE</li>
+      <li>NOT TRUE → FALSE</li>
+    </ul>
+    <p>
+    Will the following statement evaluate to <code>TRUE</code> or <code>FALSE</code>?
+    </p>
+    <ul class="code">
+      <li>NOT NOT NOT FALSE</li>
+    </ul>
+    <p>
+      We can find out by rewriting according to our rewriting rules.
+    </p>
+    <ul class="code">
+      <li>NOT NOT <strike>NOT FALSE</strike></li>
+      <li>NOT NOT TRUE</li>
+    </ul>
+    <ul class="code">
+      <li>NOT <strike>NOT TRUE</strike></li>
+      <li>NOT FALSE</li>
+    </ul>
+    <ul class="code">
+      <li><strike>NOT FALSE</strike></li>
+      <li>TRUE</li>
+    </ul>
+    <p>
+    Because <code>NOT NOT NOT FALSE</code> can be rewritten to <code>TRUE</code>, and <code>TRUE</code> cannot be rewritten, we say that <code>TRUE</code> is a normal form of <code>NOT NOT NOT FALSE</code>. <code>TRUE</code> and <code>FALSE</code> are the only normal forms possible with these rules.
+    </p>
+    <h4>Numbers</h4>
+    <p>
+      Let's specify rewriting rules for natural numbers.
+    </p>
+    <ul class="code">
+      <li>NUMBER → ZERO</li>
+      <li>NUMBER → SUCCESSOR NUMBER</li>
+    </ul>
+    <p>
+      Let's try to rewrite <code>NUMBER</code> to express the number two.
+    </p>
+    <ul class="code">
+      <li><strike>NUMBER</strike></li>
+      <li>SUCCESSOR NUMBER</li>
+    </ul>
+    <ul class="code">
+      <li>SUCCESSOR <strike>NUMBER</strike></li>
+      <li>SUCCESSOR SUCCESSOR NUMBER</li>
+    </ul>
+    <ul class="code">
+      <li>SUCCESSOR SUCCESSOR <strike>NUMBER</strike></li>
+      <li>SUCCESSOR SUCCESSOR ZERO</li>
+    </ul>
+    <p>
+    We can see that <code>SUCCESSOR SUCCESSOR ZERO</code> is a normal form of <code>NUMBER</code>, and that <code>NUMBER</code> has an endless number of possible normal forms. No normal forms of <code>NUMBER</code> contain <code>NUMBER</code>, since <code>NUMBER</code> can always be rewritten.
+    </p>
+    <h4>Normal Forms</h4>
+    <p>
+      Let's specify rewriting rules for determining the evenness of a number.
+    </p>
+    <ul class="code">
+      <li>EVENNESS ZERO → TRUE</li>
+      <li>EVENNESS SUCCESSOR x → NOT EVENNESS x | x : NUMBER</li>
+    </ul>
+    <p>
+    The second rule states that for anything that is a normal form of <code>NUMBER</code>, if call that thing <code>x</code>, that <code>EVENNESS SUCCESSOR x</code> can be rewritten to <code>NOT EVENNESS x</code>.
+    </p>
+    <p>
+      Let's use all of these rules to determine if the number three is even.
+    </p>
+    <ul class="code">
+      <li>EVENNESS SUCCESSOR SUCCESSOR SUCCESSOR ZERO</li>
+    </ul>
+    <ul class="code">
+      <li><strike>EVENNESS SUCCESSOR <b>SUCCESSOR SUCCESSOR ZERO</b></strike></li>
+      <li>NOT EVENNESS <b>SUCCESSOR SUCCESSOR ZERO</b></li>
+    </ul>
+    <ul class="code">
+      <li>NOT <strike>EVENNESS SUCCESSOR <b>SUCCESSOR ZERO</b></strike></li>
+      <li>NOT NOT EVENNESS <b>SUCCESSOR ZERO</b></li>
+    </ul>
+    <ul class="code">
+      <li>NOT NOT <strike>EVENNESS SUCCESSOR <b>ZERO</b></strike></li>
+      <li>NOT NOT NOT EVENNESS <b>ZERO</b></li>
+    </ul>
+    <ul class="code">
+      <li>NOT NOT NOT <strike>EVENNESS ZERO</strike></li>
+      <li>NOT NOT NOT TRUE</li>
+    </ul>
+    <ul class="code">
+      <li>NOT NOT <strike>NOT TRUE</strike></li>
+      <li>NOT NOT FALSE</li>
+    </ul>
+    <ul class="code">
+      <li>NOT <strike>NOT FALSE</strike></li>
+      <li>NOT TRUE</li>
+    </ul>
+    <ul class="code">
+      <li>NOT <strike>TRUE</strike></li>
+      <li>FALSE</li>
+    </ul>
+    <h4>Arithmatic</h4>
+    <p>
+      Here we will specify some rules for arithmatic using polish notation.
+    </p>
+    <ul class="code">
+      <li>PLUS x ZERO → x | x : NUMBER</li>
+      <li>PLUS x SUCCESSOR y → SUCCESSOR PLUS x y | x, y : NUMBER</li>
+    </ul>
+    <p>
+      The following statement is a representation of the addition of two and two.
+    </p>
+    <ul class="code">
+      <li>PLUS SUCCESSOR SUCCESSOR ZERO SUCCESSOR SUCCESSOR ZERO</li>
+    </ul>
+    <p>
+      Let's show that four is a normal form of two plus two.
+    </p>
+    <ul class="code">
+      <li><strike>PLUS <b>SUCCESSOR SUCCESSOR ZERO</b> SUCCESSOR <b class="blue">SUCCESSOR ZERO</b></strike></li>
+      <li>SUCCESSOR PLUS <b>SUCCESSOR SUCCESSOR ZERO</b> <b class="blue">SUCCESSOR ZERO</b></li>
+    </ul>
+    <ul class="code">
+      <li>SUCCESSOR <strike>PLUS <b>SUCCESSOR SUCCESSOR ZERO</b> SUCCESSOR <b class="blue">ZERO</b></strike></li>
+      <li>SUCCESSOR SUCCESSOR PLUS <b>SUCCESSOR SUCCESSOR ZERO</b> <b class="blue">ZERO</b></li>
+    </ul>
+    <ul class="code">
+      <li>SUCCESSOR SUCCESSOR <strike>PLUS <b>SUCCESSOR SUCCESSOR ZERO</b> ZERO</strike></li>
+      <li>SUCCESSOR SUCCESSOR <b>SUCCESSOR SUCCESSOR ZERO</b></li>
+    </ul>
+  </body>
+</html>

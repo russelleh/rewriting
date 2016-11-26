@@ -1,0 +1,40 @@
+@font-face {
+  font-family: "CMU Serif";
+  src: url("cmunrm.otf");
+}
+
+@font-face {
+  font-family: "CMU Serif";
+  src: url("cmunti.otf");
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "CMU Typewriter Text";
+  src: url("cmuntt.otf");
+}
+
+body {
+  font-family: "CMU Serif";
+  font-size:   12pt;
+  text-align:  justify;
+  padding:     2em;
+  max-width:   50em;
+}
+
+b {
+  font-weight: inherit;
+  color:       #e50000;
+}
+
+.blue {
+  color: #0343df;
+}
+
+li {
+  list-style: none;
+}
+
+code, .code {
+  font-family: "CMU Typewriter Text";
+}
